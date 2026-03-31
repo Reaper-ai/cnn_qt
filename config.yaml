@@ -1,0 +1,15 @@
+seed: 42
+dataset: "cifar10"     # Options: cifar10, cifar100
+model: "resnet18"      # Options: resnet18, mobilenetv2
+epochs: 30
+qat_epochs: 3          # Epochs to fine-tune during QAT
+batch_size: 128
+calib_batch_size: 64
+calib_size: 512        # Options: 128, 512, 2048 (Size of PTQ calibration set)
+calib_seed: 42         # Seed specifically for sampling the calib dataset
+lr: 0.1
+momentum: 0.9
+weight_decay: 5e-4
+model_dir: "model_wts"
+device: "cuda"
+precision: "all"       # Options: fp32, fp16, int8_ptq, int8_qat, all

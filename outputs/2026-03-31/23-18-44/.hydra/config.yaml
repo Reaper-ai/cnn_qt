@@ -1,0 +1,15 @@
+seed: 42
+dataset: cifar10
+model: resnet18
+epochs: 30
+qat_epochs: 3
+batch_size: 128
+calib_batch_size: 64
+calib_size: 512
+calib_seed: 42
+lr: 0.1
+momentum: 0.9
+weight_decay: 0.0005
+model_dir: model_wts
+device: cuda
+precision: all
