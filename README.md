@@ -1,119 +1,127 @@
 ## Overview
 
-This project investigates the impact of quantization on CNN performance.
+This project evaluates quantization effects on CNNs across datasets, model families, and precision modes.
 
-evaluate how **FP16 (half precision)** and **INT8 (post-training quantization)** affect:
+It measures:
 
-* Classification accuracy
-* Model calibration (Expected Calibration Error, ECE)
-* Robustness under additive Gaussian noise
-
----
-
-## Experimental Setup
-
-**Dataset:** CIFAR-10
-**Architecture:** ResNet-18 (CIFAR-adapted)
-**Training Precision:** FP32 (single baseline checkpoint)
-**Inference Variants:**
-
-* FP32 (baseline)
-* FP16 (half precision inference)
-* INT8 (FX-based post-training static quantization)
-
-**Metrics:**
-
-* Top-1 Accuracy (%)
+* Top-1 accuracy
 * Expected Calibration Error (ECE)
-* Accuracy under Gaussian noise (ε = 0.01, 0.02)
+* Inference latency (ms/sample)
+
+The code now supports multiple datasets, architectures, and both PTQ and QAT workflows.
 
 ---
 
-## Key Results
+## What Changed In The Expanded Project
 
-| Precision | Accuracy (%) | ECE    | Acc (ε=0.01) | Acc (ε=0.02) |
-| --------- | ------------ | ------ | ------------ | ------------ |
-| FP32      | 93.75        | 0.0659 | 53.02        | 53.10        |
-| FP16      | 93.75        | 0.0662 | 53.06        | 53.17        |
-| INT8      | 93.75        | 0.0651 | 53.45        | 53.20        |
-
-### Observations
-
-* **No accuracy degradation** from FP32 → INT8.
-* Calibration remains stable across precision levels.
-* Noise robustness degradation is dominated by input perturbation, not numeric precision.
-* INT8 quantization does not meaningfully harm predictive confidence quality.
+* **Datasets:** CIFAR-10 and CIFAR-100
+* **Models:** ResNet-18 (CIFAR-adapted) and MobileNetV2 (CIFAR-adapted)
+* **Precisions:** FP32, FP16, INT8 PTQ, INT8 QAT
+* **Metrics:** Accuracy, ECE, and latency
+* **Automation:** Full experiment grid runner with resume support
+* **Plots:** Aggregated plots and per-run reliability diagrams
 
 ---
 
-## Quantization Method
+## Project Structure
 
-INT8 evaluation uses **FX Graph Mode Post-Training Static Quantization** (PyTorch 2.x).
+* `main.py` runs a single configurable experiment via Hydra.
+* `automaton.py` runs the full grid of datasets, models, seeds, and precisions.
+* `generate.py` builds clean comparison plots from `metrics.json`.
+* `config.yaml` is the Hydra configuration used by `main.py`.
+* `src/` contains modular training, evaluation, quantization, and plotting code.
+* `model_wts/` stores checkpoints.
+* `fig/` stores generated plots.
 
-Pipeline:
+---
+
+## Quickstart
+
+### 1. Install Dependencies
+
+```
+pip install -e .
+```
+
+### 2. Run A Single Experiment
+
+```
+python main.py
+```
+
+Override any Hydra config value from the CLI, for example:
+
+```
+python main.py dataset=cifar100 model=mobilenetv2 precision=int8_ptq
+```
+
+### 3. Run The Full Experiment Grid
+
+```
+python automaton.py
+```
+
+This will train or reuse checkpoints, evaluate all precisions, and append results to `metrics.json`.
+
+### 4. Generate Aggregated Plots
+
+```
+python generate.py
+```
+
+---
+
+## Configuration
+
+The default settings live in `config.yaml`. Key options:
+
+* `dataset`: `cifar10` or `cifar100`
+* `model`: `resnet18` or `mobilenetv2`
+* `precision`: `fp32`, `fp16`, `int8_ptq`, `int8_qat`, or `all`
+* `calib_size`: size of the PTQ calibration subset
+* `qat_epochs`: fine-tuning epochs for QAT
+
+---
+
+## Quantization Methods
+
+* **INT8 PTQ:** FX Graph Mode Post-Training Static Quantization
+* **INT8 QAT:** FX Graph Mode Quantization-Aware Training
+
+Pipeline (PTQ):
 
 1. Load trained FP32 checkpoint
-2. Apply FX graph tracing
+2. FX trace the model
 3. Insert observers
-4. Calibrate on 512-sample subset
+4. Calibrate on a subset
 5. Convert to INT8
 6. Evaluate on CPU
 
 ---
 
-## Reproducibility
+## Outputs
 
-### 1. Install Dependencies
-
-```
-pip install -r requirements.txt
-```
-
-### 2. Train Baseline (if checkpoint not present)
-
-Run notebook or script to train FP32 model.
-
-### 3. Evaluate Precision Variants
-
-Notebook automatically:
-
-* Loads checkpoint
-* Evaluates FP32
-* Casts to FP16
-* Performs FX INT8 quantization
-* Generates comparison plots
+* `model_wts/` checkpoints per model and dataset
+* `metrics.json` with per-run metrics (used by `generate.py`)
+* `fig/` with:
+  * Per-precision reliability diagrams from `main.py`
+  * Aggregated accuracy, latency, and ECE plots from `automaton.py` or `generate.py`
 
 ---
 
-## Generated Outputs
+## Notes
 
-* `precision_comparison.png`
-
-  * Accuracy vs Precision
-  * ECE vs Precision
-  * Accuracy vs Noise Level
-
-* `reliability_diagrams.png`
-
-  * Per-bin calibration analysis for each precision
-
----
-
-## Takeaways
-
-* Post-training static quantization (INT8) preserves performance on CIFAR-10.
-* Calibration stability suggests limited confidence distortion under reduced precision.
-* Robustness to Gaussian noise is primarily governed by model sensitivity rather than arithmetic precision.
-* FX graph mode quantization is the recommended approach in modern PyTorch for CNN architectures with residual connections.
+* INT8 models evaluate on CPU, while FP32/FP16 evaluate on the configured device.
+* `automaton.py` resumes from existing `metrics.json` and skips completed runs.
 
 ---
 
 ## Potential Extensions
 
-* Measure inference latency (FP32 vs FP16 vs INT8)
 * Model size comparison
-* Per-class accuracy shifts
-* Quantization-aware training (QAT)
-* Evaluate on larger datasets (CIFAR-100, TinyImageNet)
+* Per-class accuracy analysis
+* Larger datasets (TinyImageNet)
+* QAT hyperparameter sweeps
+* End-to-end throughput benchmarks
 
 ---
