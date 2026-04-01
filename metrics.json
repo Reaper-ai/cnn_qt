@@ -1,0 +1,450 @@
+[
+
+    {
+        "model": "resnet18",
+        "dataset": "cifar10",
+        "seed": 42,
+        "precision": "FP32",
+        "accuracy": 93.34,
+        "ece": 0.031095220685005105,
+        "latency_ms": 0.24072012226561412
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar10",
+        "seed": 42,
+        "precision": "FP16",
+        "accuracy": 93.34,
+        "ece": 0.03095177749097341,
+        "latency_ms": 0.11667067851561796
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar10",
+        "seed": 42,
+        "precision": "INT8_PTQ",
+        "accuracy": 93.27,
+        "ece": 0.030967955112457247,
+        "latency_ms": 9.240864276171834
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar10",
+        "seed": 42,
+        "precision": "INT8_QAT",
+        "accuracy": 93.25,
+        "ece": 0.031427696272730885,
+        "latency_ms": 9.564092350781372
+    },
+
+    {
+        "model": "resnet18",
+        "dataset": "cifar10",
+        "seed": 123,
+        "precision": "FP32",
+        "accuracy": 93.43,
+        "ece": 0.031896390047669455,
+        "latency_ms": 0.2423829117187637
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar10",
+        "seed": 123,
+        "precision": "FP16",
+        "accuracy": 93.43,
+        "ece": 0.031907626304030455,
+        "latency_ms": 0.117035908203178
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar10",
+        "seed": 123,
+        "precision": "INT8_PTQ",
+        "accuracy": 93.36,
+        "ece": 0.03179688127934925,
+        "latency_ms": 9.63287342578134
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar10",
+        "seed": 123,
+        "precision": "INT8_QAT",
+        "accuracy": 93.47,
+        "ece": 0.030763251748681098,
+        "latency_ms": 9.403025614453142
+    },
+
+    {
+        "model": "resnet18",
+        "dataset": "cifar10",
+        "seed": 999,
+        "precision": "FP32",
+        "accuracy": 93.31,
+        "ece": 0.02990694599747655,
+        "latency_ms": 0.241486117187506
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar10",
+        "seed": 999,
+        "precision": "FP16",
+        "accuracy": 93.31,
+        "ece": 0.029899001824855866,
+        "latency_ms": 0.11606241523445249
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar10",
+        "seed": 999,
+        "precision": "INT8_PTQ",
+        "accuracy": 93.22,
+        "ece": 0.03051290237009525,
+        "latency_ms": 9.473090250781269
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar10",
+        "seed": 999,
+        "precision": "INT8_QAT",
+        "accuracy": 93.43,
+        "ece": 0.028899342331290212,
+        "latency_ms": 9.532427698828272
+    },
+
+
+
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar10",
+        "seed": 42,
+        "precision": "FP32",
+        "accuracy": 89.64,
+        "ece": 0.019955206517875232,
+        "latency_ms": 0.10148159179692584
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar10",
+        "seed": 42,
+        "precision": "FP16",
+        "accuracy": 89.63,
+        "ece": 0.02017881752252578,
+        "latency_ms": 0.10223637109376682
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar10",
+        "seed": 42,
+        "precision": "INT8_PTQ",
+        "accuracy": 89.54,
+        "ece": 0.01819653303772214,
+        "latency_ms": 1.168192792968803
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar10",
+        "seed": 42,
+        "precision": "INT8_QAT",
+        "accuracy": 89.46,
+        "ece": 0.02225773715078825,
+        "latency_ms": 1.1530617378905816
+    },
+
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar10",
+        "seed": 123,
+        "precision": "FP32",
+        "accuracy": 89.85,
+        "ece": 0.020709545618295716,
+        "latency_ms": 0.10176850273442284
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar10",
+        "seed": 123,
+        "precision": "FP16",
+        "accuracy": 89.84,
+        "ece": 0.020530954995751423,
+        "latency_ms": 0.07303365078126234
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar10",
+        "seed": 123,
+        "precision": "INT8_PTQ",
+        "accuracy": 89.6,
+        "ece": 0.021901123674213867,
+        "latency_ms": 1.1326448113281984
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar10",
+        "seed": 123,
+        "precision": "INT8_QAT",
+        "accuracy": 89.61,
+        "ece": 0.02424894920736552,
+        "latency_ms": 1.1670007312499564
+    },
+
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar10",
+        "seed": 999,
+        "precision": "FP32",
+        "accuracy": 89.46,
+        "ece": 0.018085634490847602,
+        "latency_ms": 0.10702230039054683
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar10",
+        "seed": 999,
+        "precision": "FP16",
+        "accuracy": 89.48,
+        "ece": 0.01807560132443905,
+        "latency_ms": 0.07393496835934599
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar10",
+        "seed": 999,
+        "precision": "INT8_PTQ",
+        "accuracy": 89.09,
+        "ece": 0.020725853756070063,
+        "latency_ms": 1.1592617113279857
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar10",
+        "seed": 999,
+        "precision": "INT8_QAT",
+        "accuracy": 88.96,
+        "ece": 0.024107838878035574,
+        "latency_ms": 1.4839674148436899
+    },
+
+
+    {
+        "model": "resnet18",
+        "dataset": "cifar100",
+        "seed": 42,
+        "precision": "FP32",
+        "accuracy": 74.64,
+        "ece": 0.08725473768338564,
+        "latency_ms": 0.22277721992187693
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar100",
+        "seed": 42,
+        "precision": "FP16",
+        "accuracy": 74.64,
+        "ece": 0.08726411079168322,
+        "latency_ms": 0.11451826718742453
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar100",
+        "seed": 42,
+        "precision": "INT8_PTQ",
+        "accuracy": 74.74,
+        "ece": 0.08540659208148721,
+        "latency_ms": 8.863810217187496
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar100",
+        "seed": 42,
+        "precision": "INT8_QAT",
+        "accuracy": 74.44,
+        "ece": 0.09050536416620017,
+        "latency_ms": 8.974936630468733
+    },
+
+    {
+        "model": "resnet18",
+        "dataset": "cifar100",
+        "seed": 123,
+        "precision": "FP32",
+        "accuracy": 74.81,
+        "ece": 0.0851,
+        "latency_ms": 0.226
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar100",
+        "seed": 123,
+        "precision": "FP16",
+        "accuracy": 74.82,
+        "ece": 0.0850,
+        "latency_ms": 0.117
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar100",
+        "seed": 123,
+        "precision": "INT8_PTQ",
+        "accuracy": 74.80,
+        "ece": 0.0855,
+        "latency_ms": 8.088
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar100",
+        "seed": 123,
+        "precision": "INT8_QAT",
+        "accuracy": 74.58,
+        "ece": 0.0884,
+        "latency_ms": 7.787
+    },
+
+    {
+        "model": "resnet18",
+        "dataset": "cifar100",
+        "seed": 999,
+        "precision": "FP32",
+        "accuracy": 74.45,
+        "ece": 0.0861,
+        "latency_ms": 0.227
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar100",
+        "seed": 999,
+        "precision": "FP16",
+        "accuracy": 74.45,
+        "ece": 0.0862,
+        "latency_ms": 0.116
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar100",
+        "seed": 999,
+        "precision": "INT8_PTQ",
+        "accuracy": 74.61,
+        "ece": 0.0850,
+        "latency_ms": 8.534
+    },
+    {
+        "model": "resnet18",
+        "dataset": "cifar100",
+        "seed": 999,
+        "precision": "INT8_QAT",
+        "accuracy": 74.49,
+        "ece": 0.0866,
+        "latency_ms": 8.583
+    },
+
+
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar100",
+        "seed": 999,
+        "precision": "FP32",
+        "accuracy": 64.95,
+        "ece": 0.03444809130951761,
+        "latency_ms": 0.10181341171886515
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar100",
+        "seed": 999,
+        "precision": "FP16",
+        "accuracy": 64.93,
+        "ece": 0.034644408412277714,
+        "latency_ms": 0.10486467343753247
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar100",
+        "seed": 999,
+        "precision": "INT8_PTQ",
+        "accuracy": 64.07,
+        "ece": 0.039342589823901666,
+        "latency_ms": 1.1766748007811856
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar100",
+        "seed": 999,
+        "precision": "INT8_QAT",
+        "accuracy": 64.23,
+        "ece": 0.04425087864547968,
+        "latency_ms": 1.1804510628905973
+    },
+
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar100",
+        "seed": 123,
+        "precision": "FP32",
+        "accuracy":64.55,
+        "ece":0.0367,
+        "latency_ms":0.105
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar100",
+        "seed": 123,
+        "precision": "FP16",
+        "accuracy":64.56,
+        "ece":0.0366,
+        "latency_ms":0.086
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar100",
+        "seed": 123,
+        "precision": "INT8_PTQ",
+        "accuracy":63.80,
+        "ece":0.0374,
+        "latency_ms":1.130
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar100",
+        "seed": 123,
+        "precision": "INT8_QAT",
+        "accuracy":64.31,
+        "ece":0.0416,
+        "latency_ms":1.213
+    },
+
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar100",
+        "seed": 42,
+        "precision": "FP32",
+        "accuracy":64.72,
+        "ece":0.0389,
+        "latency_ms":0.104
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar100",
+        "seed": 42,
+        "precision": "FP16",
+        "accuracy":64.74,
+        "ece":0.0387,
+        "latency_ms":0.088
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar100",
+        "seed": 42,
+        "precision": "INT8_PTQ",
+        "accuracy":64.17,
+        "ece":0.0400,
+        "latency_ms":1.435
+    },
+    {
+        "model": "mobilenetv2",
+        "dataset": "cifar100",
+        "seed": 42,
+        "precision": "INT8_QAT",
+        "accuracy":64.07,
+        "ece":0.0498,
+        "latency_ms":1.303
+    }   
+]
